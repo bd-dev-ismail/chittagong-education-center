@@ -1,88 +1,86 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { AcademicCapIcon } from "@heroicons/react/24/solid";
+import React, { useContext, useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import { AcademicCapIcon, ShoppingBagIcon } from "@heroicons/react/24/solid";
+import { CartContext } from '../layout/Main';
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [cart, setCart] = useContext(CartContext);
      return (
-       <div className="bg-primary">
+       <div className="bg-primary sticky top-0 z-20">
          <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
            <div className="relative flex items-center justify-between">
-             <Link
+             <NavLink
                to="/"
                aria-label="Company"
                title="Company"
                className="inline-flex items-center"
              >
-               {/* <svg
-                 className="w-8 text-teal-accent-400"
-                 viewBox="0 0 24 24"
-                 strokeLinejoin="round"
-                 strokeWidth="2"
-                 strokeLinecap="round"
-                 strokeMiterlimit="10"
-                 stroke="currentColor"
-                 fill="none"
-               >
-                 <rect x="3" y="1" width="7" height="12" />
-                 <rect x="3" y="17" width="7" height="6" />
-                 <rect x="14" y="1" width="7" height="6" />
-                 <rect x="14" y="11" width="7" height="12" />
-               </svg> */}
                <AcademicCapIcon className="h-8 w-8 text-white" />
                <span className="ml-2 text-xl font-bold tracking-wide text-gray-100 uppercase">
-                 <Link to="/"> EDU Center CTG</Link>
+                 EDU Center CTG
                </span>
-             </Link>
+             </NavLink>
              <ul className="flex items-center hidden space-x-8 lg:flex">
                <li>
-                 <Link
+                 <NavLink
                    to="/home"
                    aria-label="Our product"
                    title="Our product"
-                   className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                   className={({ isActive }) =>
+                     isActive
+                       ? "font-medium tracking-wide text-secondary"
+                       : "text-gray-100 font-medium tracking-wide"
+                   }
                  >
                    Home
-                 </Link>
+                 </NavLink>
                </li>
                <li>
-                 <Link
+                 <NavLink
                    to="/courses"
                    aria-label="Our product"
                    title="Our product"
-                   className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                   className={({ isActive }) =>
+                     isActive
+                       ? "font-medium tracking-wide text-secondary"
+                       : "text-gray-100 font-medium tracking-wide"
+                   }
                  >
                    Courses
-                 </Link>
+                 </NavLink>
+               </li>
+
+               <li>
+                 <NavLink
+                   to="/contact"
+                   aria-label="About us"
+                   title="About us"
+                   className={({ isActive }) =>
+                     isActive
+                       ? "font-medium tracking-wide text-secondary"
+                       : "text-gray-100 font-medium tracking-wide"
+                   }
+                 >
+                   Contact Us
+                 </NavLink>
                </li>
                <li>
-                 <Link
+                 <NavLink
                    to="/cart"
                    aria-label="Product pricing"
                    title="Product pricing"
                    className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
                  >
-                   Cart
-                 </Link>
-               </li>
-               <li>
-                 <Link
-                   to="/blogs"
-                   aria-label="About us"
-                   title="About us"
-                   className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-                 >
-                   Blog
-                 </Link>
-               </li>
-               <li>
-                 <Link
-                   to="/contact"
-                   aria-label="About us"
-                   title="About us"
-                   className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-                 >
-                   Contact Us
-                 </Link>
+                   <div className="flex relative">
+                     <p>
+                       {" "}
+                       <ShoppingBagIcon className="h-8 w-8 text-white" />
+                     </p>
+                     <p className="absolute left-8 bottom-3 text-warning">
+                       {cart.length}
+                     </p>
+                   </div>
+                 </NavLink>
                </li>
              </ul>
              <div className="lg:hidden">
@@ -112,7 +110,7 @@ const Header = () => {
                    <div className="p-5 bg-white border rounded shadow-sm">
                      <div className="flex items-center justify-between mb-4">
                        <div>
-                         <Link
+                         <NavLink
                            to="/"
                            aria-label="Company"
                            title="Company"
@@ -122,7 +120,7 @@ const Header = () => {
                            <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
                              EDU Center CTG
                            </span>
-                         </Link>
+                         </NavLink>
                        </div>
                        <div>
                          <button
@@ -146,54 +144,50 @@ const Header = () => {
                      <nav>
                        <ul className="space-y-4">
                          <li>
-                           <Link
+                           <NavLink
                              to="/"
                              aria-label="Our product"
                              title="Our product"
                              className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                            >
                              Home
-                           </Link>
+                           </NavLink>
                          </li>
                          <li>
-                           <Link
+                           <NavLink
                              to="/courses"
                              aria-label="Our product"
                              title="Our product"
                              className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                            >
                              Courses
-                           </Link>
+                           </NavLink>
                          </li>
+
                          <li>
-                           <Link
-                             to="/cart"
-                             aria-label="Product pricing"
-                             title="Product pricing"
-                             className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                           >
-                             Cart
-                           </Link>
-                         </li>
-                         <li>
-                           <Link
-                             to="/blogs"
-                             aria-label="About us"
-                             title="About us"
-                             className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                           >
-                             Blogs
-                           </Link>
-                         </li>
-                         <li>
-                           <Link
+                           <NavLink
                              to="/contact"
                              aria-label="About us"
                              title="About us"
                              className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                            >
                              Contact Us
-                           </Link>
+                           </NavLink>
+                         </li>
+                         <li>
+                           <NavLink
+                             to="/cart"
+                             aria-label="Product pricing"
+                             title="Product pricing"
+                             className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                           >
+                             <div className="flex relative">
+                               <p>Cart</p>
+                               <p className="absolute left-8 bottom-3">
+                                 {cart.length}
+                               </p>
+                             </div>
+                           </NavLink>
                          </li>
                        </ul>
                      </nav>

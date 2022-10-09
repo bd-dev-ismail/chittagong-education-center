@@ -1,6 +1,7 @@
 import React from 'react';
 import Lottie from "lottie-react";
 import hero from '../asset/hero.json';
+import { Link } from 'react-router-dom';
 const Home = () => {
    return (
      <>
@@ -26,19 +27,19 @@ const Home = () => {
                  </p>
                </div>
                <div className="flex items-center">
-                 <a
-                   href="/"
-                   className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide btn btn-outline btn-primary"
+                 <Link
+                   to="/courses"
+                   className="inline-flex items-center justify-center h-12 px-6 mr-12 font-medium tracking-wide btn btn-outline btn-primary"
                  >
-                   Our Courses
-                 </a>
-                 <a
-                   href="/"
+                   Enroll Courses
+                 </Link>
+                 <Link
+                   to="/cart"
                    aria-label=""
-                   className="inline-flex items-center font-semibold btn btn-secondary"
+                   className="inline-flex items-center  font-semibold btn btn-secondary"
                  >
-                   Learn more
-                 </a>
+                   Visit Cart
+                 </Link>
                </div>
              </div>
            </div>
@@ -152,8 +153,8 @@ const Home = () => {
              </div>
            </div>
            <div className="text-center">
-             <a
-               href="/"
+             <Link
+               to="/"
                aria-label=""
                className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
              >
@@ -165,7 +166,7 @@ const Home = () => {
                >
                  <path d="M9.707,5.293l-5-5A1,1,0,0,0,3.293,1.707L7.586,6,3.293,10.293a1,1,0,1,0,1.414,1.414l5-5A1,1,0,0,0,9.707,5.293Z" />
                </svg>
-             </a>
+             </Link>
            </div>
          </div>
        </div>
