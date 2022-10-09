@@ -8,10 +8,10 @@ export const getCartAndBook = async()=>{
     const savedCart = getStoredCart();
     let initialCart = [];
     if(savedCart){
-        for(const id in savedCart){
-            const foundBooks = books.find(book => book.id ===id);
+        for(const isbn in savedCart){
+            const foundBooks = books.find(book => book.isbn === isbn);
             if(foundBooks){
-                const quantity = savedCart[id];
+                const quantity = savedCart[isbn];
                 foundBooks.quantity = quantity;
                 initialCart.push(foundBooks);
             }
