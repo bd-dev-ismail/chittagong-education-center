@@ -7,7 +7,9 @@ import Blog from "../components/Blog";
 import Contact from "../components/Contact";
 const { createBrowserRouter } = require("react-router-dom");
 export const router = createBrowserRouter([
-   {path: '/', element: <Main></Main>, errorElement: <ErrorPage></ErrorPage>, children: [
+   {path: '/', element: <Main></Main>,
+   loader: ()=> fetch('books.json'),
+    errorElement: <ErrorPage></ErrorPage>, children: [
     {path: '/', element: <Home></Home>},
     {path: '/home', element: <Home></Home>},
     {path: '/courses', element: <Course></Course>},
