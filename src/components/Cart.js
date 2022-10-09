@@ -14,9 +14,15 @@ const Cart = () => {
       toast.warning("Remove One Item", { autoClose: 500 });
     }
     const removeAllCart = ()=>{
-      setCart([]);
-      deleteShoppingCart();
-      toast.error("Empty Cart", { autoClose: 500 });
+      if(cart.length){
+
+        setCart([]);
+        deleteShoppingCart();
+        return toast.error("Empty Cart", { autoClose: 500 });
+      }
+      else{
+        return alert('Cart is already empty');
+      }
     }
     let total = 0;
     for(const book of cart){

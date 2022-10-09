@@ -76,7 +76,7 @@ const Header = () => {
                        {" "}
                        <ShoppingBagIcon className="h-8 w-8 text-white" />
                      </p>
-                     <p className="absolute left-8 bottom-3 text-warning">
+                     <p className="absolute left-8 bottom-3 text-secondary">
                        {cart.length}
                      </p>
                    </div>
