@@ -181,9 +181,12 @@ const Header = () => {
                              title="Product pricing"
                              className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                            >
-                             <div className="flex relative">
-                               <p>Cart</p>
-                               <p className="absolute left-8 bottom-3">
+                             <div className="flex relative  justify-center">
+                               <p>
+                                 {" "}
+                                 <ShoppingBagIcon className="h-8 w-8  text-gray-700" />
+                               </p>
+                               <p className="absolute left-[12rem] bottom-3">
                                  {cart.length}
                                </p>
                              </div>
