@@ -6,6 +6,7 @@ import Cart from "../components/Cart";
 import Contact from "../components/Contact";
 import { getCartAndBook } from '../utilites/loaders/getCartAndBook';
 const { createBrowserRouter } = require("react-router-dom");
+
 export const router = createBrowserRouter([
    {path: '/', element: <Main></Main>,
    loader: getCartAndBook,

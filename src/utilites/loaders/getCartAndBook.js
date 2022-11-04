@@ -1,9 +1,10 @@
 import { getStoredCart } from "../fakeDb";
 
 export const getCartAndBook = async()=>{
-    const booksData = await fetch('books.json');
-    const books = await booksData.json();
-
+    const booksData = await fetch("http://localhost:5000/books");
+    
+    const {books, count} = await booksData.json();
+    console.log(books, count);
     //get cart 
     const savedCart = getStoredCart();
     let initialCart = [];
