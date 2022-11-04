@@ -5,10 +5,13 @@ import Footer from '../components/Footer';
 export const BooksContext = createContext([]);
 export const CartContext = createContext([]);
 const Main = () => {
-    const {books, initialCart} = useLoaderData([]);
+    const {books, initialCart, count} = useLoaderData([]);
+    const [page, setPage] = useState(0);
     const [cart, setCart] = useState(initialCart);
+    const bookInfo = {books, count}
+    
     return (
-      <BooksContext.Provider value={books}>
+      <BooksContext.Provider value={bookInfo}>
         <CartContext.Provider value={[cart, setCart]}>
           <Header></Header>
           <Outlet></Outlet>

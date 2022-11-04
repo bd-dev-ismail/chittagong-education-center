@@ -4,7 +4,7 @@ export const getCartAndBook = async()=>{
     const booksData = await fetch("http://localhost:5000/books");
     
     const {books, count} = await booksData.json();
-    console.log(books, count);
+    
     //get cart 
     const savedCart = getStoredCart();
     let initialCart = [];
@@ -19,5 +19,5 @@ export const getCartAndBook = async()=>{
         }
     }
 
-    return {books, initialCart};
+    return {books, initialCart, count};
 }
