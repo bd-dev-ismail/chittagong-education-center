@@ -45,10 +45,10 @@ const Cart = () => {
         </ul>
         <div className="space-y-1 text-right">
           <p>
-            Total amount: <span className="font-semibold">{total}$</span>
+            Total amount is: <span className="font-semibold">{total}$</span>
           </p>
           <p className="text-sm text-gray-400">
-            Not including taxes and shipping costs
+            Without including taxes and shipping costs
           </p>
         </div>
         <div className="flex justify-end space-x-4">
@@ -62,7 +62,7 @@ const Cart = () => {
             type="button"
             className="btn btn-outline btn-secondary "
           >
-            Place Order
+            Placed Order
           </button>
         </div>
       </div>

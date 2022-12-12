@@ -6,7 +6,7 @@ export const BooksContext = createContext([]);
 export const CartContext = createContext([]);
 const Main = () => {
     const {books, initialCart, count} = useLoaderData([]);
-    const [page, setPage] = useState(0);
+    
     const [cart, setCart] = useState(initialCart);
     const bookInfo = {books, count}
     
